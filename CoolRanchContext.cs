@@ -42,10 +42,11 @@ namespace CoolRanch
             UpdateState();
             _game.MonitorProcesses();
 
-            if(args != null){
+            if(args.Length > 1){
                 char[] delimiterChars = {':'};
                 string[] split = args[0].Split(delimiterChars);
                 _broker.ConnectFromScratch(split[1], int.Parse(split[2]));
+                Application.Exit();
             }
 
         }
