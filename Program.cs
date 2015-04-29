@@ -13,7 +13,7 @@ namespace CoolRanch
 
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            Application.Run(new CoolRanchContext(game, broker));
+            Application.Run(new CoolRanchContext(game, broker, args));
         }
     }
 }

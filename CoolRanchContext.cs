@@ -21,7 +21,7 @@ namespace CoolRanch
 
         private Thread _announceThread;
 
-        public CoolRanchContext(ElDorado game, SessionInfoExchanger broker)
+        public CoolRanchContext(ElDorado game, SessionInfoExchanger broker, string[] args)
         {
             _game = game;
             _broker = broker;
@@ -41,6 +41,13 @@ namespace CoolRanch
                 "To begin, please launch Halo Online.", ToolTipIcon.Info);
             UpdateState();
             _game.MonitorProcesses();
+
+            if(args != null){
+                char[] delimiterChars = {':'};
+                string[] split = args[0].Split(delimiterChars);
+                _broker.ConnectFromScratch(split[1], int.Parse(split[2]));
+            }
+
         }
 
         void UpdateState()
