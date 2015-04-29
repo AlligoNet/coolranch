@@ -46,6 +46,7 @@ namespace CoolRanch
                 char[] delimiterChars = {':'};
                 string[] split = args[0].Split(delimiterChars);
                 _broker.ConnectFromScratch(split[1], int.Parse(split[2]));
+                System.Threading.Thread.Sleep(500);
                 Application.Exit();
             }
 
